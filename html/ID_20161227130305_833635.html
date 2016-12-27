@@ -1,0 +1,119 @@
+<html>
+  <head>
+  <meta charset="utf-8">
+  <style type="text/css">
+  body {
+  margin: 0;
+  }
+  #main {
+  height: 100%;
+  }
+  </style>
+  </head>
+  <body>
+  <div id="main"></div>
+  <script src="./js/echarts.js"></script>
+  <script src = "./js/echarts-all.js"></script>
+  <script>
+  var myChart = echarts.init(document.getElementById("main"));
+
+  
+
+  var heatData = [[116.395645037879,39.9299857780802,8],
+[113.307649675152,23.1200491020762,2],
+[120.21937541572,30.2592444615361,2],
+[101.556307295327,34.5113897378692,1],
+[118.778074408026,32.0572355018059,1],
+[112.542841900512,33.0114195691165,1],
+[121.579005972589,29.8852589659181,1],
+[112.515495863839,37.8665659905093,1],
+[121.487899485695,31.2491617100151,4],
+[114.025973657322,22.5460535462052,2],
+[123.432790921605,41.8086447835157,1],
+[120.61990711549,31.3179873679524,2],
+[117.210813091553,39.1439299033101,1],
+[103.849930865706,36.0645697330627,1],
+[111.310981091961,30.7327578180259,1]];
+  var optionID_20161227130305_833635 =
+  {
+
+  backgroundColor: '#1b1b1b',
+  color: ['gold','aqua','lime'],
+  title : {
+  text: '国内分布热力图',
+  subtext:'',
+  x:'center',
+  textStyle : {
+  color: '#fff'
+  }
+  },
+  tooltip : {
+  trigger: 'item',
+  formatter: function (v) {
+  if(v[2].tooltipValue!=null){
+  return v[2].tooltipvalue;
+  }else{
+  return v[1];
+  }
+  }},
+  dataRange: {
+    show: false,
+    min : 0,
+    max : 100,
+    calculable : true,
+    color: ['#ff3333', 'orange', 'yellow','lime','aqua'],
+    textStyle:{
+      color:'#fff'
+    }
+  },
+  legend: {
+  show:false,
+  orient: 'vertical',
+  x:'left',
+  data:['Data'],
+  textStyle:{color:'backgroundColorData'}
+
+  },
+  toolbox: {
+  show : true,
+  orient : 'vertical',
+  x: 'right',
+  y: 'center',
+  feature : {
+  mark : {show: true},
+  dataView : {show: true, readOnly: false},
+  restore : {show: true},
+  saveAsImage : {show: true}
+  }
+  },
+  series : [
+  {
+  name:'Data',
+  type:'map',
+  mapType: 'china',
+  roam: true,
+  itemStyle:{
+  normal:{
+  borderColor:'rgba(100,149,237,1)',
+  borderWidth: 0.5,
+  label:{show:true,textStyle:{color:'#fff'}},
+  areaStyle: {color: 'backgroundColorData'}
+  },
+  emphasis:{label:{show:true,textStyle:{color:'#fff'}}}
+  },
+  data:[]
+  ,heatmap: {
+                      blurSize:30 ,
+                      colors:['blue', 'cyan', 'lime', 'yellow', 'red'] ,
+                      minAlpha:0.4 ,
+                      opacity:1 ,
+                      data: heatData}
+  
+  
+  }]
+  }
+;
+  myChart.setOption(optionID_20161227130305_833635);
+  </script>
+  </body>
+  </html>

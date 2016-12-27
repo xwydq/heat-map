@@ -1,0 +1,143 @@
+<html>
+  <head>
+  <meta charset="utf-8">
+  <style type="text/css">
+  body {
+  margin: 0;
+  }
+  #main {
+  height: 100%;
+  }
+  </style>
+  </head>
+  <body>
+  <div id="main"></div>
+  <script src="./js/echarts.js"></script>
+  <script src = "./js/echarts-all.js"></script>
+  <script>
+  var myChart = echarts.init(document.getElementById("main"));
+
+  
+
+  var heatData = [[115.494810169076,38.8865645480274,1],
+[116.395645037879,39.9299857780802,1],
+[116.395645037879,39.9299857780802,44],
+[112.97935278765,28.2134782308532,6],
+[104.114129253479,37.5503394745908,2],
+[104.067923463304,30.6799428454196,3],
+[113.134025635393,23.0350948405144,1],
+[117.984943119907,26.0501182956607,1],
+[119.330221107127,26.0471254965729,2],
+[113.307649675152,23.1200491020762,9],
+[110.330801848336,20.0220712769522,1],
+[114.482693932342,36.6093079284712,1],
+[120.21937541572,30.2592444615361,5],
+[117.220296765077,39.1731489339242,1],
+[101.556307295327,34.5113897378692,2],
+[111.660350520054,40.8283188730816,1],
+[111.720663546476,27.6958640523564,1],
+[103.823305440729,36.0642255250426,1],
+[115.893527545836,28.6895780001411,1],
+[118.778074408026,32.0572355018059,3],
+[112.542841900512,33.0114195691165,1],
+[121.579005972589,29.8852589659181,1],
+[120.384428183682,36.1052149012738,1],
+[112.515495863839,37.8665659905093,1],
+[116.728650288341,23.3839084532692,1],
+[121.487899485695,31.2491617100151,14],
+[114.025973657322,22.5460535462052,5],
+[123.432790921605,41.8086447835157,1],
+[120.61990711549,31.3179873679524,5],
+[112.550863589055,37.8902770539675,1],
+[117.210813091553,39.1439299033101,1],
+[114.316200102681,30.5810841269208,1],
+[108.953098279196,34.2777998978306,3],
+[114.191116749848,22.3029036401748,1],
+[103.849930865706,36.0645697330627,1],
+[111.310981091961,30.7327578180259,1],
+[111.00685365308,35.0388594798119,1],
+[113.649643849864,34.7566100641403,1],
+[106.530635013413,29.5446061088861,1]];
+  var optionID_20161227130305_833660 =
+  {
+
+  backgroundColor: '#1b1b1b',
+  color: ['gold','aqua','lime'],
+  title : {
+  text: '国内分布热力图',
+  subtext:'',
+  x:'center',
+  textStyle : {
+  color: '#fff'
+  }
+  },
+  tooltip : {
+  trigger: 'item',
+  formatter: function (v) {
+  if(v[2].tooltipValue!=null){
+  return v[2].tooltipvalue;
+  }else{
+  return v[1];
+  }
+  }},
+  dataRange: {
+    show: false,
+    min : 0,
+    max : 100,
+    calculable : true,
+    color: ['#ff3333', 'orange', 'yellow','lime','aqua'],
+    textStyle:{
+      color:'#fff'
+    }
+  },
+  legend: {
+  show:false,
+  orient: 'vertical',
+  x:'left',
+  data:['Data'],
+  textStyle:{color:'backgroundColorData'}
+
+  },
+  toolbox: {
+  show : true,
+  orient : 'vertical',
+  x: 'right',
+  y: 'center',
+  feature : {
+  mark : {show: true},
+  dataView : {show: true, readOnly: false},
+  restore : {show: true},
+  saveAsImage : {show: true}
+  }
+  },
+  series : [
+  {
+  name:'Data',
+  type:'map',
+  mapType: 'china',
+  roam: true,
+  itemStyle:{
+  normal:{
+  borderColor:'rgba(100,149,237,1)',
+  borderWidth: 0.5,
+  label:{show:true,textStyle:{color:'#fff'}},
+  areaStyle: {color: 'backgroundColorData'}
+  },
+  emphasis:{label:{show:true,textStyle:{color:'#fff'}}}
+  },
+  data:[]
+  ,heatmap: {
+                      blurSize:30 ,
+                      colors:['blue', 'cyan', 'lime', 'yellow', 'red'] ,
+                      minAlpha:0.4 ,
+                      opacity:1 ,
+                      data: heatData}
+  
+  
+  }]
+  }
+;
+  myChart.setOption(optionID_20161227130305_833660);
+  </script>
+  </body>
+  </html>
